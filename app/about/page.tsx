@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
   return (
     <div className="flex flex-col items-center justify-center p-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -15,7 +17,7 @@ export default function About() {
             <li><strong>Vercel:</strong> The best platform for deploying Next.js applications.</li>
           </ul>
         </div>
-        <a href="/" className="text-blue-500 hover:underline">← Back to Home</a>
+        <Link href="/" className="text-blue-500 hover:underline">← Back to Home</Link>
       </div>
     </div>
   );
