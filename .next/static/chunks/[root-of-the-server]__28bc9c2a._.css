@@ -671,10 +671,6 @@ body ::selection, body::selection {
   height: 1.5rem;
 }
 
-.h-7 {
-  height: 1.75rem;
-}
-
 .h-8 {
   height: 2rem;
 }
@@ -745,10 +741,6 @@ body ::selection, body::selection {
 
 .w-6 {
   width: 1.5rem;
-}
-
-.w-7 {
-  width: 1.75rem;
 }
 
 .w-8 {
@@ -1075,6 +1067,10 @@ body ::selection, body::selection {
 
 .border-transparent {
   border-color: rgba(0, 0, 0, 0);
+}
+
+.border-white\/20 {
+  border-color: rgba(255, 255, 255, .2);
 }
 
 .bg-\[\#25D366\] {
@@ -2135,6 +2131,10 @@ body ::selection, body::selection {
     height: 2rem;
   }
 
+  .lg\:h-9 {
+    height: 2.25rem;
+  }
+
   .lg\:h-\[500px\] {
     height: 500px;
   }
@@ -2181,6 +2181,10 @@ body ::selection, body::selection {
 
   .lg\:w-8 {
     width: 2rem;
+  }
+
+  .lg\:w-9 {
+    width: 2.25rem;
   }
 
   .lg\:w-\[500px\] {

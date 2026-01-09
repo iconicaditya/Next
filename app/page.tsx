@@ -31,6 +31,12 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const popAnimation = {
+    initial: { scale: 0, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+    transition: { type: "spring", stiffness: 260, damping: 20 }
+  };
+
   return (
     <div className="flex flex-col min-h-screen font-sans selection:bg-primary/10">
       {/* Premium Navbar */}
@@ -262,7 +268,7 @@ export default function Home() {
                   whileHover={{ y: -8 }}
                 >
                   <div className={cn("w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center mb-6 lg:mb-10 transition-transform duration-500 group-hover:scale-110", cat.bg, cat.color)}>
-                    <cat.icon className="h-6 w-6 lg:h-8 lg:h-8" />
+                    <cat.icon className="h-6 w-6 lg:h-8 lg:w-8" />
                   </div>
                   <h3 className="text-xl lg:text-2xl font-black text-slate-900 mb-3 lg:mb-4 tracking-tight group-hover:text-blue-600 transition-colors">{cat.name}</h3>
                   <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-6 lg:mb-10 font-medium italic">Navigate complex {cat.name.toLowerCase()} with our certified experts.</p>
@@ -282,17 +288,23 @@ export default function Home() {
           href="https://wa.me/9768441368"
           target="_blank"
           rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="w-14 h-14 lg:w-16 lg:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40"
+          initial={popAnimation.initial}
+          animate={popAnimation.animate}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          whileTap={{ scale: 0.9 }}
+          className="w-14 h-14 lg:w-16 lg:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40 border-2 border-white/20"
         >
-          <MessageSquare className="h-7 w-7 lg:h-8 lg:w-8" />
+          <FaWhatsapp className="h-8 w-8 lg:h-9 lg:w-9" />
         </motion.a>
         <motion.a 
           href="tel:9768441368"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="w-14 h-14 lg:w-16 lg:h-16 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/40"
+          initial={popAnimation.initial}
+          animate={popAnimation.animate}
+          transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+          whileHover={{ scale: 1.1, rotate: -5 }}
+          whileTap={{ scale: 0.9 }}
+          className="w-14 h-14 lg:w-16 lg:h-16 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/40 border-2 border-white/20"
         >
           <Phone className="h-6 w-6 lg:h-7 lg:w-7" />
         </motion.a>
