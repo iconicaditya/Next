@@ -21,7 +21,7 @@ export default function AboutPage() {
             transition={{ delay: 0.1 }}
             className="text-lg lg:text-xl text-slate-500 font-medium leading-relaxed px-4"
           >
-            Formora Nepal was born from a simple observation: millions of Nepalis struggle with complex digital forms every day. We're here to change that.
+            Formora Nepal was born from a simple observation: millions of Nepalis struggle with complex digital forms every day. We&apos;re here to change that.
           </motion.p>
         </div>
 

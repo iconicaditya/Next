@@ -2,11 +2,10 @@
 
 import { motion } from "framer-motion";
 import { 
-  ArrowRight, ShieldCheck, Globe, Landmark, GraduationCap, 
-  Briefcase, CheckCircle2, AlertCircle, Clock, Shield
+  ArrowRight, ShieldCheck,
+  CheckCircle2, AlertCircle, Clock, Shield
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export default function CategoryPage() {
   return (

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ChevronRight, ChevronLeft, Upload, ShieldCheck, ArrowRight } from "lucide-react";
+import { CheckCircle2, ChevronRight, ChevronLeft, Upload, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 

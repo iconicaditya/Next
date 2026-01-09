@@ -223,7 +223,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
               </div>
-              <span className="text-[10px] lg:text-xs font-black text-slate-800 tracking-[0.15em] uppercase">Nepal's Premier Digital Form Assistance</span>
+              <span className="text-[10px] lg:text-xs font-black text-slate-800 tracking-[0.15em] uppercase">Nepal&apos;s Premier Digital Form Assistance</span>
             </motion.div>
             
             <motion.h1 
@@ -422,7 +422,7 @@ export default function Home() {
                 </div>
                 <span className="text-2xl lg:text-3xl font-[1000] tracking-tighter text-slate-900 uppercase">FORMORA NEPAL</span>
               </div>
-              <p className="text-lg lg:text-xl text-slate-500 font-medium max-w-sm leading-relaxed">Nepal's first professional digital form assistance platform. Built for trust, speed, and accuracy.</p>
+              <p className="text-lg lg:text-xl text-slate-500 font-medium max-w-sm leading-relaxed">Nepal&apos;s first professional digital form assistance platform. Built for trust, speed, and accuracy.</p>
             </div>
             <div>
               <h4 className="font-black text-slate-900 mb-8 lg:mb-10 uppercase tracking-[0.25em] text-xs">Services</h4>
