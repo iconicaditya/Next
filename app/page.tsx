@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { 
   ArrowRight, ShieldCheck, Zap, Globe, Landmark, GraduationCap, 
-  Briefcase, ChevronRight, Menu, X, Phone, ChevronDown 
+  Briefcase, ChevronRight, Menu, X, Phone, ChevronDown, 
+  CheckCircle2, Shield, Star, Award, TrendingUp
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,13 @@ const categories = [
   { id: 4, name: "Foreign & International", icon: Globe, color: "text-purple-600", bg: "bg-purple-50", services: ["Visa Appointment", "Attestation"], path: "/category" },
   { id: 5, name: "Banking & Finance", icon: Landmark, color: "text-amber-600", bg: "bg-amber-50", services: ["Loan Forms", "Account Opening"], path: "/category" },
   { id: 6, name: "Business & Tax", icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50", services: ["PAN Registration", "Tax Filing"], path: "/category" },
+];
+
+const stats = [
+  { label: "Success Rate", value: "99.9%", icon: CheckCircle2, color: "from-blue-500 to-indigo-600" },
+  { label: "Forms Handled", value: "50K+", icon: TrendingUp, color: "from-emerald-500 to-teal-600" },
+  { label: "Expert Advisors", value: "100+", icon: Star, color: "from-amber-500 to-orange-600" },
+  { label: "Secure Processing", value: "Bank-Grade", icon: Shield, color: "from-red-500 to-rose-600" },
 ];
 
 export default function Home() {
@@ -37,8 +45,21 @@ export default function Home() {
     transition: { type: "spring", stiffness: 260, damping: 20 }
   };
 
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
   return (
-    <div className="flex flex-col min-h-screen font-sans selection:bg-primary/10">
+    <div className="flex flex-col min-h-screen font-sans selection:bg-primary/10 overflow-x-hidden">
       {/* Premium Navbar */}
       <nav className={cn(
         "fixed w-full z-50 transition-all duration-500 border-b",
@@ -48,9 +69,12 @@ export default function Home() {
       )}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group cursor-pointer">
-            <div className="w-10 h-10 lg:w-11 lg:h-11 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
+            <motion.div 
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              className="w-10 h-10 lg:w-11 lg:h-11 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl lg:rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20"
+            >
               <span className="text-white font-bold text-lg lg:text-xl tracking-tighter">F</span>
-            </div>
+            </motion.div>
             <div className="flex flex-col">
               <span className="text-lg lg:text-xl font-bold tracking-tight text-slate-900 leading-tight">FORMORA <span className="text-blue-600">NEPAL</span></span>
               <span className="text-[8px] lg:text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase leading-none">Form Assistance</span>
@@ -176,25 +200,27 @@ export default function Home() {
             animate={{ 
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3],
+              rotate: [0, 10, 0]
             }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-[20%] -right-[10%] w-[400px] lg:w-[600px] h-[400px] lg:h-[600px] bg-blue-100 rounded-full blur-[80px] lg:blur-[120px]" 
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-[20%] -right-[10%] w-[400px] lg:w-[800px] h-[400px] lg:h-[800px] bg-blue-100 rounded-full blur-[80px] lg:blur-[150px]" 
           />
           <motion.div 
             animate={{ 
               scale: [1, 1.3, 1],
               opacity: [0.2, 0.4, 0.2],
+              rotate: [0, -10, 0]
             }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute top-[20%] -left-[10%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-red-100 rounded-full blur-[80px] lg:blur-[120px]" 
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute top-[20%] -left-[10%] w-[300px] lg:w-[700px] h-[300px] lg:h-[700px] bg-red-100 rounded-full blur-[80px] lg:blur-[150px]" 
           />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               className="inline-flex items-center space-x-2 px-3 lg:px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6 lg:mb-8"
             >
               <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
@@ -228,11 +254,15 @@ export default function Home() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-5 px-4"
             >
               <Link href="/apply" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full rounded-2xl px-10 lg:px-12 h-14 lg:h-16 text-base lg:text-lg font-bold bg-blue-600 hover:bg-blue-700 shadow-2xl shadow-blue-500/25 group">
-                  Start My Application <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <Button size="lg" className="w-full rounded-2xl px-10 lg:px-12 h-14 lg:h-16 text-base lg:text-lg font-bold bg-blue-600 hover:bg-blue-700 shadow-2xl shadow-blue-500/25 group overflow-hidden relative">
+                  <span className="relative z-10">Start My Application</span>
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" 
+                  />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-2xl px-10 lg:px-12 h-14 lg:h-16 text-base lg:text-lg font-bold border-2 border-slate-200 hover:bg-slate-50 transition-all">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-2xl px-10 lg:px-12 h-14 lg:h-16 text-base lg:text-lg font-bold border-2 border-slate-200 hover:bg-slate-50 transition-all hover:border-blue-200">
                 Talk to an Expert
               </Button>
             </motion.div>
@@ -240,15 +270,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Grid Section */}
-      <section className="py-20 lg:py-32 bg-slate-50/50 border-y border-slate-100">
+      {/* Stats/Trust Grid */}
+      <section className="py-12 lg:py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-white p-6 lg:p-8 rounded-[24px] lg:rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/20 flex flex-col items-center text-center group transition-all duration-300"
+              >
+                <div className={cn("w-12 h-12 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl flex items-center justify-center mb-4 lg:mb-6 bg-gradient-to-br text-white shadow-lg", stat.color)}>
+                  <stat.icon className="h-6 w-6 lg:h-7 lg:w-7" />
+                </div>
+                <div className="text-2xl lg:text-3xl font-black text-slate-900 mb-1">{stat.value}</div>
+                <div className="text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-widest">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid Section */}
+      <section className="py-20 lg:py-32 bg-slate-50/50 border-y border-slate-100 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 lg:mb-20">
-            <div className="max-w-xl">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="max-w-xl"
+            >
               <h2 className="text-3xl lg:text-5xl font-black text-slate-900 mb-4 lg:mb-6 tracking-tight">Expert Assistance,<br className="hidden sm:block" />Simplified for You.</h2>
               <p className="text-base lg:text-lg text-slate-500 font-medium">Choose a category to get started with professional form guidance.</p>
-            </div>
-            <Button variant="ghost" className="w-fit text-blue-600 font-bold hover:bg-blue-50 rounded-xl px-6 group">
+            </motion.div>
+            <Button variant="ghost" className="w-fit text-blue-600 font-bold hover:bg-blue-50 rounded-xl px-6 group transition-all">
               View All Services <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -258,22 +321,28 @@ export default function Home() {
               <Link
                 key={cat.id}
                 href={cat.path}
-                className="group relative bg-white p-8 lg:p-10 rounded-[24px] lg:rounded-[32px] border border-slate-200/60 shadow-xl shadow-slate-200/20 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 cursor-pointer"
+                className="group relative"
               >
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
+                  custom={i}
+                  whileHover={{ y: -10 }}
+                  className="bg-white p-8 lg:p-10 rounded-[24px] lg:rounded-[32px] border border-slate-200/60 shadow-xl shadow-slate-200/20 hover:shadow-2xl hover:shadow-blue-500/15 transition-all duration-500 h-full relative overflow-hidden"
                 >
-                  <div className={cn("w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center mb-6 lg:mb-10 transition-transform duration-500 group-hover:scale-110", cat.bg, cat.color)}>
-                    <cat.icon className="h-6 w-6 lg:h-8 lg:w-8" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent -mr-16 -mt-16 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className={cn("w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg", cat.bg, cat.color)}>
+                    <cat.icon className="h-6 w-6 lg:h-8 lg:h-8" />
                   </div>
                   <h3 className="text-xl lg:text-2xl font-black text-slate-900 mb-3 lg:mb-4 tracking-tight group-hover:text-blue-600 transition-colors">{cat.name}</h3>
-                  <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-6 lg:mb-10 font-medium italic">Navigate complex {cat.name.toLowerCase()} with our certified experts.</p>
-                  <div className="flex items-center text-xs lg:text-sm font-bold text-blue-600 uppercase tracking-widest">
-                    Get Started <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-6 lg:mb-10 font-medium italic opacity-80 group-hover:opacity-100">Navigate complex {cat.name.toLowerCase()} with our certified experts.</p>
+                  
+                  <div className="flex items-center text-xs lg:text-sm font-bold text-blue-600 uppercase tracking-widest mt-auto">
+                    <span>Get Started</span>
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </motion.div>
               </Link>
@@ -293,8 +362,11 @@ export default function Home() {
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           whileHover={{ scale: 1.1, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 lg:w-16 lg:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40 border-2 border-white/20"
+          className="w-14 h-14 lg:w-16 lg:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40 border-2 border-white/20 relative group"
         >
+          <div className="absolute -left-20 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            WhatsApp Us
+          </div>
           <FaWhatsapp className="h-8 w-8 lg:h-9 lg:w-9" />
         </motion.a>
         <motion.a 
@@ -304,14 +376,18 @@ export default function Home() {
           transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
           whileHover={{ scale: 1.1, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 lg:w-16 lg:h-16 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/40 border-2 border-white/20"
+          className="w-14 h-14 lg:w-16 lg:h-16 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/40 border-2 border-white/20 relative group"
         >
+          <div className="absolute -left-20 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Call Expert
+          </div>
           <Phone className="h-6 w-6 lg:h-7 lg:w-7" />
         </motion.a>
       </div>
 
       {/* Modern Footer */}
-      <footer className="bg-white pt-16 lg:pt-24 pb-12 border-t border-slate-100">
+      <footer className="bg-white pt-16 lg:pt-24 pb-12 border-t border-slate-100 relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16 lg:mb-24">
             <div className="lg:col-span-2">
@@ -321,33 +397,33 @@ export default function Home() {
                 </div>
                 <span className="text-xl font-bold tracking-tight text-slate-900 font-sans uppercase">FORMORA NEPAL</span>
               </div>
-              <p className="text-base lg:text-lg text-slate-500 font-medium max-w-sm">Nepal's first professional digital form assistance platform. Built for trust, speed, and accuracy.</p>
+              <p className="text-base lg:text-lg text-slate-500 font-medium max-w-sm leading-relaxed">Nepal's first professional digital form assistance platform. Built for trust, speed, and accuracy.</p>
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 mb-6">Services</h4>
+              <h4 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Services</h4>
               <ul className="space-y-4 text-slate-500 font-medium">
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Government Forms</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Visa Assistance</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Education Portals</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Business Registration</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Government Forms</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Visa Assistance</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Education Portals</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Business Registration</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 mb-6">Support</h4>
+              <h4 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Support</h4>
               <ul className="space-y-4 text-slate-500 font-medium">
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Contact Us</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Privacy Policy</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">Terms of Service</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer text-sm lg:text-base">FAQ</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Contact Us</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Privacy Policy</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Terms of Service</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">FAQ</li>
               </ul>
             </div>
           </div>
           <div className="pt-8 lg:pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-slate-400 font-medium text-xs lg:text-sm text-center md:text-left">© 2026 Formora Nepal. Handcrafted with precision.</p>
             <div className="flex space-x-6 lg:space-x-8 text-slate-400 font-bold text-[10px] lg:text-sm">
-              <span className="hover:text-slate-900 transition-colors cursor-pointer uppercase">TWITTER</span>
-              <span className="hover:text-slate-900 transition-colors cursor-pointer uppercase">FACEBOOK</span>
-              <span className="hover:text-slate-900 transition-colors cursor-pointer uppercase">LINKEDIN</span>
+              <motion.span whileHover={{ color: "#0f172a" }} className="transition-colors cursor-pointer uppercase">TWITTER</motion.span>
+              <motion.span whileHover={{ color: "#0f172a" }} className="transition-colors cursor-pointer uppercase">FACEBOOK</motion.span>
+              <motion.span whileHover={{ color: "#0f172a" }} className="transition-colors cursor-pointer uppercase">LINKEDIN</motion.span>
             </div>
           </div>
         </div>
