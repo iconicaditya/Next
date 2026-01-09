@@ -5,7 +5,7 @@ import Link from "next/link";
 import { 
   ArrowRight, ShieldCheck, Globe, Landmark, GraduationCap, 
   Briefcase, ChevronRight, Menu, X, Phone, ChevronDown, 
-  CheckCircle2, Shield, Star, TrendingUp, Sparkles
+  CheckCircle2, Shield, Star, TrendingUp, Sparkles, Search
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -32,6 +32,26 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const allServices = categories.flatMap(cat => 
+    cat.services.map(service => ({
+      name: service,
+      category: cat.name,
+      path: cat.path,
+      icon: cat.icon,
+      color: cat.color,
+      bg: cat.bg
+    }))
+  );
+
+  const filteredServices = searchQuery.trim() === "" 
+    ? [] 
+    : allServices.filter(s => 
+        s.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        s.category.toLowerCase().includes(searchQuery.toLowerCase())
+      );
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -74,6 +94,60 @@ export default function Home() {
               <span className="text-[8px] lg:text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase leading-none">Form Assistance</span>
             </div>
           </Link>
+
+          {/* Search Bar - Desktop */}
+          <div className="hidden md:flex items-center flex-1 max-w-md mx-8 relative">
+            <div className="relative w-full group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Search className="h-4 w-4 text-slate-400 group-focus-within:text-blue-600 transition-colors" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search services (e.g. Passport, Visa...)"
+                className="block w-full pl-11 pr-4 py-2.5 bg-slate-100/50 border border-transparent focus:bg-white focus:border-blue-200 focus:ring-4 focus:ring-blue-50 rounded-2xl text-sm font-medium transition-all outline-none"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              
+              {/* Search Results Dropdown */}
+              <AnimatePresence>
+                {searchQuery.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-slate-200 shadow-2xl p-2 z-50 overflow-hidden"
+                  >
+                    {filteredServices.length > 0 ? (
+                      <div className="max-h-[300px] overflow-y-auto custom-scrollbar">
+                        {filteredServices.map((service, idx) => (
+                          <Link 
+                            key={`${service.name}-${idx}`} 
+                            href={service.path}
+                            onClick={() => setSearchQuery("")}
+                            className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors group/result"
+                          >
+                            <div className={cn("p-2 rounded-lg", service.bg, service.color)}>
+                              <service.icon className="h-4 w-4" />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-sm font-bold text-slate-900 group-hover/result:text-blue-600 transition-colors">{service.name}</span>
+                              <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">{service.category}</span>
+                            </div>
+                            <ChevronRight className="h-4 w-4 ml-auto text-slate-300 group-hover/result:text-blue-400 transition-colors" />
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="p-4 text-center">
+                        <p className="text-sm text-slate-500 font-medium">No services found for &quot;{searchQuery}&quot;</p>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-1">
@@ -156,6 +230,53 @@ export default function Home() {
               className="lg:hidden bg-white border-t border-slate-100 overflow-hidden"
             >
               <div className="px-4 pt-4 pb-8 space-y-2">
+                {/* Mobile Search */}
+                <div className="pb-4">
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <Search className="h-4 w-4 text-slate-400" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Search services..."
+                      className="block w-full pl-11 pr-4 py-3 bg-slate-100/50 border-none focus:bg-white focus:ring-4 focus:ring-blue-50 rounded-xl text-base font-medium transition-all outline-none"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    
+                    {searchQuery.length > 0 && (
+                      <div className="mt-2 bg-slate-50 rounded-xl p-2 space-y-1">
+                        {filteredServices.slice(0, 5).map((service, idx) => (
+                          <Link 
+                            key={`mobile-${service.name}-${idx}`} 
+                            href={service.path}
+                            onClick={() => {
+                              setSearchQuery("");
+                              setIsMobileMenuOpen(false);
+                            }}
+                            className="flex items-center gap-3 p-3 rounded-lg hover:bg-white transition-colors"
+                          >
+                            <div className={cn("p-2 rounded-lg", service.bg, service.color)}>
+                              <service.icon className="h-4 w-4" />
+                            </div>
+                            <span className="text-sm font-bold text-slate-900">{service.name}</span>
+                          </Link>
+                        ))}
+                        {filteredServices.length > 5 && (
+                          <div className="text-center py-2">
+                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">+ {filteredServices.length - 5} more results</span>
+                          </div>
+                        )}
+                        {filteredServices.length === 0 && (
+                          <div className="p-4 text-center">
+                            <p className="text-sm text-slate-500 font-medium">No results</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="ghost" className="w-full justify-start text-base font-bold py-6">Home</Button>
                 </Link>
