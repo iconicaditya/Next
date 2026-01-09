@@ -461,10 +461,6 @@ body ::selection, body::selection {
   right: 0;
 }
 
-.-left-28 {
-  left: -7rem;
-}
-
 .-left-\[10\%\] {
   left: -10%;
 }
@@ -509,6 +505,10 @@ body ::selection, body::selection {
   right: 1.5rem;
 }
 
+.right-full {
+  right: 100%;
+}
+
 .top-0 {
   top: 0;
 }
@@ -523,10 +523,6 @@ body ::selection, body::selection {
 
 .top-full {
   top: 100%;
-}
-
-.right-full {
-  right: 100%;
 }
 
 .-z-10 {
@@ -627,6 +623,10 @@ body ::selection, body::selection {
   margin-right: .25rem;
 }
 
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .mt-1 {
   margin-top: .25rem;
 }
@@ -641,10 +641,6 @@ body ::selection, body::selection {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.mr-4 {
-  margin-right: 1rem;
 }
 
 .flex {
@@ -860,12 +856,12 @@ body ::selection, body::selection {
   max-width: 80rem;
 }
 
-.max-w-sm {
-  max-width: 24rem;
-}
-
 .max-w-\[calc\(100vw-2rem\)\] {
   max-width: calc(100vw - 2rem);
+}
+
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .shrink-0 {
