@@ -22,11 +22,41 @@ const categories = [
 ];
 
 const stats = [
-  { label: "Success Rate", value: "99.9%", icon: CheckCircle2, color: "from-blue-500 to-indigo-600" },
-  { label: "Forms Handled", value: "50K+", icon: TrendingUp, color: "from-emerald-500 to-teal-600" },
-  { label: "Expert Advisors", value: "100+", icon: Star, color: "from-amber-500 to-orange-600" },
-  { label: "Secure Processing", value: "Bank-Grade", icon: Shield, color: "from-red-500 to-rose-600" },
+  { label: "Success Rate", value: 99.9, suffix: "%", icon: CheckCircle2, color: "from-blue-500 to-indigo-600" },
+  { label: "Forms Handled", value: 50, suffix: "K+", icon: TrendingUp, color: "from-emerald-500 to-teal-600" },
+  { label: "Expert Advisors", value: 100, suffix: "+", icon: Star, color: "from-amber-500 to-orange-600" },
+  { label: "Customer Satisfaction", value: 4.9, suffix: "/5", icon: Shield, color: "from-red-500 to-rose-600" },
 ];
+
+function Counter({ value, suffix, decimals = 0 }: { value: number, suffix: string, decimals?: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = value;
+    const duration = 2000;
+    const increment = end / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(start);
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return (
+    <span>
+      {count.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+}
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -432,7 +462,13 @@ export default function Home() {
                 <div className={cn("w-14 h-14 lg:w-20 lg:h-20 rounded-[24px] lg:rounded-[32px] flex items-center justify-center mb-6 lg:mb-8 bg-gradient-to-br text-white shadow-2xl transform group-hover:rotate-6 transition-transform duration-500", stat.color)}>
                   <stat.icon className="h-7 w-7 lg:h-10 lg:w-10" />
                 </div>
-                <div className="text-3xl lg:text-5xl font-[1000] text-slate-900 mb-2 tracking-tighter">{stat.value}</div>
+                <div className="text-3xl lg:text-5xl font-[1000] text-slate-900 mb-2 tracking-tighter">
+                  <Counter 
+                    value={stat.value} 
+                    suffix={stat.suffix} 
+                    decimals={stat.value % 1 === 0 ? 0 : 1} 
+                  />
+                </div>
                 <div className="text-[10px] lg:text-sm font-black text-slate-400 uppercase tracking-[0.2em]">{stat.label}</div>
               </motion.div>
             ))}
