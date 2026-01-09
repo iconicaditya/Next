@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { 
   ArrowRight, ShieldCheck, Zap, Globe, Landmark, GraduationCap, 
-  Briefcase, ChevronRight, Menu, X, Phone, MessageSquare, ChevronDown 
+  Briefcase, ChevronRight, Menu, X, Phone, ChevronDown 
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
