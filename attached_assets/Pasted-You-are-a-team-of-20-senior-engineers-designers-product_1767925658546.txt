@@ -1,0 +1,553 @@
+You are a team of 20 senior engineers, designers, product managers, UX researchers, growth hackers, and DevOps experts building a category-defining platform for Nepal.
+
+Note: you only need to creat frontend now gradually I will add routing, api , databse ,  frontend ui design must be complete before limit of tier and since hosting already configured on vercel, its should not be effected.
+
+Remove before existed ui design that is just for sample
+
+Your task is to build a world-class, ultra-premium, highly animated, trust-driven digital platform called:
+FORMORA NEPAL  
+Tagline: “Nepal’s Most Trusted Digital Form Assistance Platform”
+
+This platform must feel:
+- More advanced than any government or private service website in Nepal
+- As polished as Apple, Stripe, or Linear
+- Extremely trustworthy, calm, and professional
+- Designed to convert first-time visitors into paying customers
+
+This is NOT a simple website.
+This is a scalable digital business platform.
+
+--------------------------------------------------
+SECTION 1: CORE VISION & PRODUCT PHILOSOPHY
+--------------------------------------------------
+
+Formora Nepal exists to remove fear, confusion, and stress from forms.
+
+Users in Nepal struggle with:
+- Government portals
+- Complex instructions
+- Rejections due to small mistakes
+- Time waste
+- Language barriers
+- Poor service quality
+
+Formora Nepal must feel like:
+- A calm expert sitting beside the user
+- A digital government assistant
+- A premium consultancy, not an agent shop
+
+Design principles:
+- Trust over flash
+- Simplicity over complexity
+- Motion with purpose
+- Accessibility for all ages
+- Mobile-first for Nepal
+- Fast even on slow internet
+
+--------------------------------------------------
+SECTION 2: TECH STACK & ARCHITECTURE
+--------------------------------------------------
+
+Mandatory stack:
+- Next.js (App Router)
+- TypeScript (strict)
+- Tailwind CSS
+- Framer Motion (animations)
+- ShadCN UI
+- React Hook Form
+- Zod validation
+- Modular component architecture
+- SEO optimized metadata
+- Performance optimized (lazy loading, code splitting)
+
+Folder structure must be clean, scalable, and enterprise-level.
+
+--------------------------------------------------
+SECTION 3: BRANDING & IDENTITY
+--------------------------------------------------
+
+Brand name: Formora Nepal
+
+Tone:
+- Professional
+- Calm
+- Respectful
+- Confident
+- Friendly but not casual
+
+Colors:
+- Nepal-inspired gradient palette
+- White space dominant
+- Subtle red/green accents
+- Soft shadows, no harsh contrast
+
+Typography:
+- Modern sans-serif
+- Clear hierarchy
+- Large readable text for elders
+
+--------------------------------------------------
+SECTION 4: LANDING EXPERIENCE (WOW MOMENT)
+--------------------------------------------------
+
+When user enters:
+- Smooth fade + slide page reveal
+- Motion gradient background
+- Floating abstract document icons
+- Animated headline reveal
+
+Hero Headline:
+“One Platform. Every Form. Zero Stress.”
+
+Subtext:
+“Government, education, foreign, banking, and digital forms — handled accurately, securely, and fast.”
+
+Primary CTA:
+“Start My Application”
+
+Secondary CTA:
+“Talk to an Expert”
+
+Add subtle soundless motion to create life without distraction.
+
+--------------------------------------------------
+SECTION 5: SMART SERVICE DISCOVERY
+--------------------------------------------------
+
+Display services using animated category cards.
+
+Categories:
+1. Government & Public Services
+2. Citizenship & Identity
+3. Education & Exams
+4. Foreign & International
+5. Banking, Finance & Insurance
+6. Business & Tax
+7. Online & Digital Services
+
+Each card:
+- Icon animation
+- Hover elevation
+- Micro-interaction feedback
+- Click leads to category page
+
+--------------------------------------------------
+SECTION 6: CATEGORY PAGE EXPERIENCE
+--------------------------------------------------
+
+Each category page must:
+- Explain category purpose
+- List services as interactive tiles
+- Include “Who is this for?” section
+- Include trust badges
+- Smooth page transitions
+
+--------------------------------------------------
+SECTION 7: SERVICE DETAIL PAGE (CRITICAL)
+--------------------------------------------------
+
+Every service gets a dedicated page.
+
+Structure:
+- Service title
+- Calm introduction
+- “What this service does”
+- “Who should apply”
+- Required documents checklist
+- Estimated processing time
+- Common mistakes (we prevent)
+- Privacy & security promise
+- Transparent pricing placeholder
+
+Add collapsible sections for clarity.
+
+CTA:
+“Proceed with This Service”
+
+--------------------------------------------------
+SECTION 8: USER JOURNEY PSYCHOLOGY
+--------------------------------------------------
+
+The platform must reduce anxiety.
+
+Use:
+- Progress indicators
+- Friendly microcopy
+- Reassuring messages
+- Clear next steps
+- No overwhelming forms
+
+--------------------------------------------------
+SECTION 9: SUBMISSION FORM SYSTEM
+--------------------------------------------------
+
+Design a multi-step but simple form.
+
+Fields:
+- Full Name
+- Phone / WhatsApp
+- Email
+- Selected Service (auto-filled)
+- Requirement description
+- Document upload (PDF, JPG, PNG)
+
+Features:
+- Inline validation
+- File preview
+- Upload progress
+- Error prevention
+- Success animation
+
+After submit:
+- Confirmation message
+- “We’ll contact you shortly”
+- WhatsApp follow-up option
+
+--------------------------------------------------
+SECTION 10: DOCUMENT HANDLING & SECURITY
+--------------------------------------------------
+
+Communicate strong trust:
+- Files are encrypted
+- Never shared with third parties
+- Deleted after completion
+- Privacy-first messaging
+
+--------------------------------------------------
+SECTION 11: TRUST ENGINE
+--------------------------------------------------
+
+Add:
+- Testimonials
+- Experience counters
+- “Trusted by Nepalis nationwide”
+- Government portal experience badge
+- Data privacy pledge
+- Support availability status
+
+--------------------------------------------------
+SECTION 12: CONVERSION BOOSTERS
+--------------------------------------------------
+
+Add:
+- Sticky “Apply Now” button
+- Floating WhatsApp icon
+- Contextual CTAs
+- Soft urgency messaging
+- Help hints
+
+--------------------------------------------------
+SECTION 13: PERFORMANCE & SEO
+--------------------------------------------------
+
+Optimize:
+- Page speed
+- Metadata
+- Structured data
+- Accessibility
+- Lighthouse scores
+
+--------------------------------------------------
+SECTION 14: ADMIN & FUTURE SCALABILITY
+--------------------------------------------------
+
+Design system to support:
+- Adding services easily
+- Editing content
+- Managing submissions
+- Status tracking (future)
+- SMS/WhatsApp notifications
+- Payment integration later
+
+--------------------------------------------------
+SECTION 15: MOBILE EXPERIENCE (NEPAL FIRST)
+--------------------------------------------------
+
+Mobile UX must be perfect:
+- Thumb-friendly buttons
+- Large tap areas
+- Minimal typing
+- Fast load on 3G
+- WhatsApp integration priority
+
+--------------------------------------------------
+SECTION 16: ANIMATION GUIDELINES
+--------------------------------------------------
+
+Use animations only when:
+- Guiding attention
+- Showing progress
+- Giving feedback
+- Enhancing trust
+
+Never:
+- Over-animate
+- Distract
+- Reduce clarity
+
+--------------------------------------------------
+SECTION 17: ERROR HANDLING & EDGE CASES
+--------------------------------------------------
+
+Handle:
+- Network failure
+- Upload errors
+- Form validation errors
+- Slow connections
+
+Always reassure the user.
+
+--------------------------------------------------
+SECTION 18: MONETIZATION STRATEGY
+--------------------------------------------------
+
+Design platform to support:
+- Per-service pricing
+- Priority processing
+- Business subscriptions
+- Partner referrals
+- Premium support
+
+--------------------------------------------------
+SECTION 19: DEPLOYMENT & PRODUCTION
+--------------------------------------------------
+
+Ensure:
+- Production-ready code
+- Environment variables
+- Secure form handling
+- Clean logs
+- Easy deployment to Vercel
+
+--------------------------------------------------
+SECTION 20: FINAL EXPECTATION
+--------------------------------------------------
+
+The final product must feel like:
+- The best service website in Nepal
+- Built by elite engineers
+- Designed with deep empathy
+- Focused on trust, growth, and long-term success
+
+Deliver a complete, modular, scalable, production-ready website that sets a new standard for digital services in Nepal.
+
+
+
+
+
+Below are report of this website for your reference
+
+
+
+Formora Nepal
+Pre Development Technical, Design, and Business Report
+________________________________________
+1. Introduction
+The digital service landscape in Nepal is undergoing rapid transformation. While government portals, educational institutions, financial organizations, and international agencies increasingly rely on online forms, the majority of users still face serious challenges when interacting with these systems. These challenges include lack of clarity, language barriers, technical complexity, frequent errors, slow internet connections, and fear of rejection due to minor mistakes. As a result, form filling has become a high-friction experience rather than a convenience.
+Formora Nepal is envisioned as a next-generation digital form assistance platform designed to bridge this gap. The platform will not merely function as a form-filling website, but as a trusted digital partner that guides users through complex processes with clarity, confidence, and security. This report documents the complete vision, design philosophy, technical roadmap, user journey, business strategy, and development methodology for Formora Nepal prior to implementation.
+This report serves as a foundational reference for designers, developers, and stakeholders before any production code is written. It ensures clarity of direction, reduces technical debt, and aligns all efforts with long-term business success.
+________________________________________
+2. Problem Statement
+Despite the growth of digital services in Nepal, users continue to struggle with:
+•	Complex government and institutional online forms
+•	Confusing instructions and unclear requirements
+•	Frequent rejection of applications due to small errors
+•	Poor user experience in official portals
+•	Lack of guidance in document preparation
+•	Time-consuming correction cycles
+•	Low trust in informal agents
+•	Security and privacy concerns when sharing documents
+These issues are especially severe for students, migrant workers, elderly citizens, rural users, and busy professionals. There is a strong need for a centralized, professional, and trustworthy platform that simplifies the entire process while maintaining transparency and data security.
+________________________________________
+3. Vision and Objectives
+3.1 Vision
+To become Nepal’s most trusted, modern, and scalable digital form assistance platform—setting a new national standard for online service delivery.
+3.2 Core Objectives
+•	Reduce user stress and confusion during form submission
+•	Increase application success rate through accuracy
+•	Build long-term trust with transparency and security
+•	Deliver a premium, modern user experience
+•	Enable fast processing and communication
+•	Create a scalable business platform
+________________________________________
+4. Target Audience
+Formora Nepal is designed for a broad demographic, including:
+1.	Students applying for exams, universities, scholarships, or certificates
+2.	Migrant workers applying for foreign employment, visas, or permits
+3.	Business owners managing registration, tax, and compliance forms
+4.	Professionals with limited time
+5.	Elderly citizens requiring assistance with digital platforms
+6.	General citizens applying for government and public services
+The platform must be accessible, multilingual-ready, mobile-first, and friendly to non-technical users.
+________________________________________
+5. Brand Identity and Positioning
+5.1 Brand Name
+Formora Nepal
+The name combines a global, professional tone with local relevance. It avoids limiting the platform to "form filling" alone, allowing future expansion into consultancy, automation, and digital services.
+5.2 Brand Personality
+•	Professional
+•	Calm
+•	Trustworthy
+•	Empathetic
+•	Modern
+•	Respectful
+5.3 Tagline
+"Nepal’s Most Trusted Digital Form Assistance Platform"
+________________________________________
+6. Design Philosophy
+The design of Formora Nepal will be guided by the following principles:
+•	Trust-first design: Visual calmness, clarity, and transparency
+•	Minimalism: No clutter, only essential information
+•	Motion with purpose: Animations guide attention, not distract
+•	Accessibility: Readable fonts, clear hierarchy, large tap targets
+•	Mobile-first: Optimized for low bandwidth and small screens
+The visual language will draw subtle inspiration from Nepal’s national identity while maintaining global design standards.
+________________________________________
+7. User Journey Overview
+The user journey is carefully structured to reduce anxiety and maximize conversion:
+1.	Discovery: User lands on a visually calm, professional homepage
+2.	Understanding: User browses service categories and details
+3.	Confidence: User reviews requirements, timelines, and guarantees
+4.	Action: User submits service request with documents
+5.	Reassurance: User receives confirmation and communication
+6.	Completion: Service is processed and delivered
+Each stage must clearly communicate what happens next.
+________________________________________
+8. Information Architecture
+8.1 Core Pages
+•	Home
+•	Services
+•	Service Categories
+•	Service Detail Pages
+•	Submission Form
+•	About / How It Works
+•	Contact
+•	Privacy Policy
+•	Terms of Service
+8.2 Service Categorization
+Services will be grouped into intuitive categories:
+•	Government & Public Services
+•	Citizenship & Identity
+•	Education & Examinations
+•	Foreign & International Services
+•	Banking, Finance & Insurance
+•	Business, Tax & Compliance
+•	Online & Digital Services
+Each category will have a dedicated page with contextual explanations.
+________________________________________
+9. Service Detail Page Strategy
+Service detail pages are critical conversion points. Each service page will include:
+•	Clear service description
+•	Eligibility explanation
+•	Required documents checklist
+•	Estimated processing time
+•	Common mistakes users make
+•	Privacy and security assurance
+•	Transparent pricing placeholders
+This reduces uncertainty and builds confidence before submission.
+________________________________________
+10. Submission System Concept
+The submission system will be designed for simplicity and reliability:
+•	Step-by-step form flow
+•	Minimal required fields
+•	Real-time validation
+•	Document upload with preview
+•	Clear success confirmation
+The system will reassure users that their data is secure and handled professionally.
+________________________________________
+11. Trust and Security Framework
+Trust is the foundation of Formora Nepal. The platform will emphasize:
+•	Secure document handling
+•	Clear privacy policy
+•	No data sharing with third parties
+•	Controlled file retention
+•	Visible trust signals
+Trust badges, testimonials, and clear communication will be integrated across the platform.
+________________________________________
+12. Technical Architecture Overview
+12.1 Frontend
+•	Next.js (App Router)
+•	TypeScript
+•	Tailwind CSS
+•	Framer Motion
+•	Modular component architecture
+12.2 Backend (Planned)
+•	Next.js API Routes
+•	Secure form handling
+•	File processing
+•	Email and WhatsApp notifications
+12.3 Database (Future)
+•	PostgreSQL
+•	Prisma ORM
+•	Secure file metadata storage
+________________________________________
+13. Development Methodology
+The platform will be built in structured phases:
+1.	Design and planning
+2.	Frontend UI foundation
+3.	Navigation and routing
+4.	Submission UI
+5.	Backend APIs
+6.	Database integration
+7.	Admin dashboard
+8.	Advanced features
+9.	Security hardening
+10.	Deployment and optimization
+Each phase will be completed, reviewed, and stabilized before proceeding.
+________________________________________
+14. Performance and Accessibility
+Performance is critical in Nepal’s network environment. The platform will prioritize:
+•	Fast load times
+•	Optimized images
+•	Minimal JavaScript overhead
+•	Progressive enhancement
+•	Accessibility compliance
+________________________________________
+15. SEO and Discoverability
+The platform will be SEO-optimized to ensure discoverability:
+•	Semantic HTML
+•	Metadata optimization
+•	Structured data
+•	Sitemap generation
+•	Mobile-first indexing
+________________________________________
+16. Monetization Strategy
+Revenue will be generated through:
+•	Per-service fees
+•	Priority processing options
+•	Business subscriptions
+•	Partner referrals
+•	Future premium features
+Pricing transparency will be emphasized.
+________________________________________
+17. Scalability and Future Expansion
+Formora Nepal is designed for growth:
+•	Admin dashboard
+•	Service management
+•	Status tracking
+•	Payment integration
+•	SMS and WhatsApp automation
+•	Multilingual support
+________________________________________
+18. Risk Analysis
+Potential risks include:
+•	User trust issues
+•	Legal compliance
+•	Data security
+•	Operational overload
+Mitigation strategies include transparency, secure systems, and phased scaling.
+________________________________________
+19. Success Metrics
+Key success indicators:
+•	Conversion rate
+•	Submission completion rate
+•	User retention
+•	Processing accuracy
+•	Customer satisfaction
+________________________________________
+20. Conclusion
+Formora Nepal is not simply a website—it is a digital service platform built on trust, empathy, and modern engineering. By combining premium design, structured development, and a deep understanding of Nepal’s user needs, Formora Nepal aims to redefine how citizens interact with digital forms.
+This report provides a clear blueprint for development and should be treated as the authoritative reference before implementation begins. Adhering to this plan will significantly increase the platform’s chances of long-term success, scalability, and market leadership.
+________________________________________
+End of Report
+
