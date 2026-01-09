@@ -445,6 +445,10 @@ body ::selection, body::selection {
   z-index: 50;
 }
 
+.z-\[60\] {
+  z-index: 60;
+}
+
 .order-1 {
   order: 1;
 }
@@ -2703,6 +2707,10 @@ body ::selection, body::selection {
   .lg\:blur-\[150px\] {
     --tw-blur: blur(150px);
     filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  }
+
+  .group:hover .lg\:group-hover\:opacity-100 {
+    opacity: 1;
   }
 }
 

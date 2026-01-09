@@ -377,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* Floating Action Menu */}
-      <div className="fixed bottom-6 right-6 lg:bottom-12 lg:right-12 z-50 flex flex-col items-end gap-4 lg:gap-6">
+      <div className="fixed bottom-6 right-6 lg:bottom-12 lg:right-12 z-[60] flex flex-col items-end gap-4 lg:gap-6">
           <motion.a 
           href="https://wa.me/9768441368"
           target="_blank"
@@ -387,9 +387,9 @@ export default function Home() {
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           whileHover={{ scale: 1.15, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 lg:w-20 lg:h-20 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(37,211,102,0.4)] border-4 border-white relative group"
+          className="w-16 h-16 lg:w-20 lg:h-20 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(37,211,102,0.4)] border-4 border-white relative group cursor-pointer"
         >
-          <div className="absolute right-full mr-4 bg-slate-900 text-white text-xs font-black px-4 py-2 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest shadow-xl uppercase">
+          <div className="absolute right-full mr-4 bg-slate-900 text-white text-xs font-black px-4 py-2 rounded-xl opacity-0 lg:group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest shadow-xl uppercase">
             WhatsApp Us
           </div>
           <FaWhatsapp className="h-9 w-9 lg:h-11 lg:w-11" />
@@ -401,9 +401,9 @@ export default function Home() {
           transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
           whileHover={{ scale: 1.15, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 lg:w-20 lg:h-20 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(37,99,235,0.4)] border-4 border-white relative group"
+          className="w-16 h-16 lg:w-20 lg:h-20 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(37,99,235,0.4)] border-4 border-white relative group cursor-pointer"
         >
-          <div className="absolute right-full mr-4 bg-slate-900 text-white text-xs font-black px-4 py-2 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest shadow-xl uppercase">
+          <div className="absolute right-full mr-4 bg-slate-900 text-white text-xs font-black px-4 py-2 rounded-xl opacity-0 lg:group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest shadow-xl uppercase">
             Call Expert
           </div>
           <Phone className="h-7 w-7 lg:h-9 lg:w-9" />
