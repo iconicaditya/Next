@@ -3,9 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { 
-  ArrowRight, ShieldCheck, Zap, Globe, Landmark, GraduationCap, 
+  ArrowRight, ShieldCheck, Globe, Landmark, GraduationCap, 
   Briefcase, ChevronRight, Menu, X, Phone, ChevronDown, 
-  CheckCircle2, Shield, Star, Award, TrendingUp
+  CheckCircle2, Shield, Star, TrendingUp, Sparkles
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -193,7 +193,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 lg:pt-52 lg:pb-40 overflow-hidden">
+      <section className="relative pt-32 pb-16 lg:pt-52 lg:pb-40 overflow-hidden min-h-[90vh] flex items-center justify-center">
         {/* Animated Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden">
           <motion.div 
@@ -214,66 +214,96 @@ export default function Home() {
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             className="absolute top-[20%] -left-[10%] w-[300px] lg:w-[700px] h-[300px] lg:h-[700px] bg-red-100 rounded-full blur-[80px] lg:blur-[150px]" 
           />
+          {/* Decorative Floating Dots */}
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1.5px,transparent_1.5px)] [background-size:40px_40px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              className="inline-flex items-center space-x-2 px-3 lg:px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6 lg:mb-8"
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-xl shadow-blue-500/5 mb-8 lg:mb-10"
             >
-              <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
-              <span className="text-[10px] lg:text-xs font-bold text-slate-600 tracking-wide uppercase">Nepal's Most Trusted Digital Form Assistance</span>
+              <div className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+              </div>
+              <span className="text-[10px] lg:text-xs font-black text-slate-800 tracking-[0.15em] uppercase">Nepal's Premier Digital Form Assistance</span>
             </motion.div>
             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl sm:text-6xl lg:text-8xl font-black tracking-tight text-slate-900 mb-6 lg:mb-8 leading-[1.1] lg:leading-[0.95]"
+              className="text-5xl sm:text-7xl lg:text-[110px] font-[1000] tracking-[-0.04em] text-slate-900 mb-8 lg:mb-10 leading-[0.9] lg:leading-[0.85]"
             >
               One Platform.<br className="hidden sm:block" />
               Every Form.<br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700">Zero Stress.</span>
+              <motion.span 
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-[length:200%_auto]"
+              >Zero Stress.</motion.span>
             </motion.h1>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg lg:text-xl text-slate-600 mb-8 lg:mb-12 leading-relaxed font-medium max-w-2xl mx-auto px-4"
+              className="text-xl lg:text-2xl text-slate-600 mb-10 lg:mb-14 leading-relaxed font-medium max-w-3xl mx-auto px-4"
             >
-              Government, education, foreign, banking, and digital forms — handled accurately, securely, and fast.
+              Government, education, foreign, banking, and digital form services — handled accurately, securely, and fast by experts.
             </motion.p>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 lg:gap-5 px-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-5 lg:gap-6 px-4"
             >
-              <Link href="/apply" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full rounded-2xl px-10 lg:px-12 h-14 lg:h-16 text-base lg:text-lg font-bold bg-blue-600 hover:bg-blue-700 shadow-2xl shadow-blue-500/25 group overflow-hidden relative">
-                  <span className="relative z-10">Start My Application</span>
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
-                  <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" 
-                  />
+              <Link href="/category" className="w-full sm:w-auto">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button size="lg" className="w-full rounded-2xl px-12 lg:px-16 h-16 lg:h-20 text-lg lg:text-xl font-black bg-blue-600 hover:bg-blue-700 shadow-[0_20px_50px_rgba(59,130,246,0.3)] group overflow-hidden relative border-none">
+                    <span className="relative z-10">Start My Application</span>
+                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform relative z-10" />
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" 
+                    />
+                  </Button>
+                </motion.div>
+              </Link>
+              <Link href="/category" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-2xl px-12 lg:px-16 h-16 lg:h-20 text-lg lg:text-xl font-black border-2 border-slate-200 hover:bg-slate-50 transition-all hover:border-blue-400 hover:text-blue-600">
+                  Explore Services
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-2xl px-10 lg:px-12 h-14 lg:h-16 text-base lg:text-lg font-bold border-2 border-slate-200 hover:bg-slate-50 transition-all hover:border-blue-200">
-                Talk to an Expert
-              </Button>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="mt-12 lg:mt-16 flex flex-wrap items-center justify-center gap-6 lg:gap-10 text-slate-400 font-black text-[10px] lg:text-xs uppercase tracking-[0.2em]"
+            >
+              <span className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-amber-500" /> Trusted by Nepalis nationwide</span>
+              <span className="hidden sm:block text-slate-200">|</span>
+              <span className="flex items-center gap-2"><Shield className="h-4 w-4 text-blue-500" /> Privacy-first</span>
+              <span className="hidden sm:block text-slate-200">|</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-500" /> Error-free assistance</span>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Stats/Trust Grid */}
-      <section className="py-12 lg:py-20 relative z-10">
+      <section className="py-16 lg:py-24 relative z-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-10">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -282,14 +312,14 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white p-6 lg:p-8 rounded-[24px] lg:rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/20 flex flex-col items-center text-center group transition-all duration-300"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="bg-white p-8 lg:p-12 rounded-[40px] border border-slate-100 shadow-2xl shadow-slate-200/40 flex flex-col items-center text-center group transition-all duration-500"
               >
-                <div className={cn("w-12 h-12 lg:w-14 lg:h-14 rounded-xl lg:rounded-2xl flex items-center justify-center mb-4 lg:mb-6 bg-gradient-to-br text-white shadow-lg", stat.color)}>
-                  <stat.icon className="h-6 w-6 lg:h-7 lg:w-7" />
+                <div className={cn("w-14 h-14 lg:w-20 lg:h-20 rounded-[24px] lg:rounded-[32px] flex items-center justify-center mb-6 lg:mb-8 bg-gradient-to-br text-white shadow-2xl transform group-hover:rotate-6 transition-transform duration-500", stat.color)}>
+                  <stat.icon className="h-7 w-7 lg:h-10 lg:w-10" />
                 </div>
-                <div className="text-2xl lg:text-3xl font-black text-slate-900 mb-1">{stat.value}</div>
-                <div className="text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-widest">{stat.label}</div>
+                <div className="text-3xl lg:text-5xl font-[1000] text-slate-900 mb-2 tracking-tighter">{stat.value}</div>
+                <div className="text-[10px] lg:text-sm font-black text-slate-400 uppercase tracking-[0.2em]">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -297,26 +327,28 @@ export default function Home() {
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-20 lg:py-32 bg-slate-50/50 border-y border-slate-100 relative overflow-hidden">
+      <section className="py-24 lg:py-40 bg-slate-50/50 border-y border-slate-100 relative overflow-hidden">
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 lg:mb-20">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16 lg:mb-24">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-xl"
+              className="max-w-2xl"
             >
-              <h2 className="text-3xl lg:text-5xl font-black text-slate-900 mb-4 lg:mb-6 tracking-tight">Expert Assistance,<br className="hidden sm:block" />Simplified for You.</h2>
-              <p className="text-base lg:text-lg text-slate-500 font-medium">Choose a category to get started with professional form guidance.</p>
+              <h2 className="text-4xl lg:text-7xl font-[1000] text-slate-900 mb-6 lg:mb-8 tracking-tighter leading-[0.95]">Expert Assistance,<br />Simplified for You.</h2>
+              <p className="text-lg lg:text-xl text-slate-500 font-medium leading-relaxed">Choose a category to get started with professional form guidance from our certified experts.</p>
             </motion.div>
-            <Button variant="ghost" className="w-fit text-blue-600 font-bold hover:bg-blue-50 rounded-xl px-6 group transition-all">
-              View All Services <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <motion.div whileHover={{ x: 10 }} transition={{ type: "spring", stiffness: 400 }}>
+              <Button variant="ghost" className="w-fit text-blue-600 font-black text-lg hover:bg-blue-50 rounded-2xl px-8 py-8 group transition-all">
+                View All Services <ChevronRight className="ml-2 h-6 w-6 group-hover:translate-x-2 transition-transform" />
+              </Button>
+            </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {categories.map((cat, i) => (
               <Link
                 key={cat.id}
@@ -329,20 +361,20 @@ export default function Home() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   custom={i}
-                  whileHover={{ y: -10 }}
-                  className="bg-white p-8 lg:p-10 rounded-[24px] lg:rounded-[32px] border border-slate-200/60 shadow-xl shadow-slate-200/20 hover:shadow-2xl hover:shadow-blue-500/15 transition-all duration-500 h-full relative overflow-hidden"
+                  whileHover={{ y: -15 }}
+                  className="bg-white p-10 lg:p-14 rounded-[40px] lg:rounded-[56px] border border-slate-200/60 shadow-2xl shadow-slate-200/20 hover:shadow-[0_40px_80px_rgba(59,130,246,0.12)] transition-all duration-700 h-full relative overflow-hidden flex flex-col"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent -mr-16 -mt-16 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-50 to-transparent -mr-20 -mt-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
-                  <div className={cn("w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg", cat.bg, cat.color)}>
-                    <cat.icon className="h-6 w-6 lg:h-8 lg:h-8" />
+                  <div className={cn("w-16 h-16 lg:w-24 lg:h-24 rounded-[28px] lg:rounded-[40px] flex items-center justify-center mb-8 lg:mb-12 transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 shadow-xl", cat.bg, cat.color)}>
+                    <cat.icon className="h-8 w-8 lg:h-12 lg:w-12" />
                   </div>
-                  <h3 className="text-xl lg:text-2xl font-black text-slate-900 mb-3 lg:mb-4 tracking-tight group-hover:text-blue-600 transition-colors">{cat.name}</h3>
-                  <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-6 lg:mb-10 font-medium italic opacity-80 group-hover:opacity-100">Navigate complex {cat.name.toLowerCase()} with our certified experts.</p>
+                  <h3 className="text-2xl lg:text-4xl font-black text-slate-900 mb-4 lg:mb-6 tracking-tight group-hover:text-blue-600 transition-colors leading-tight">{cat.name}</h3>
+                  <p className="text-base lg:text-lg text-slate-500 leading-relaxed mb-10 lg:mb-14 font-medium italic opacity-80 group-hover:opacity-100">Navigate complex {cat.name.toLowerCase()} with our certified experts.</p>
                   
-                  <div className="flex items-center text-xs lg:text-sm font-bold text-blue-600 uppercase tracking-widest mt-auto">
+                  <div className="flex items-center text-sm lg:text-base font-black text-blue-600 uppercase tracking-[0.2em] mt-auto">
                     <span>Get Started</span>
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-3 transition-transform duration-500" />
                   </div>
                 </motion.div>
               </Link>
@@ -352,7 +384,7 @@ export default function Home() {
       </section>
 
       {/* Floating Action Menu */}
-      <div className="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-50 flex flex-col items-end gap-3 lg:gap-4">
+      <div className="fixed bottom-6 right-6 lg:bottom-12 lg:right-12 z-50 flex flex-col items-end gap-4 lg:gap-6">
         <motion.a 
           href="https://wa.me/9768441368"
           target="_blank"
@@ -360,70 +392,70 @@ export default function Home() {
           initial={popAnimation.initial}
           animate={popAnimation.animate}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          whileHover={{ scale: 1.1, rotate: 5 }}
+          whileHover={{ scale: 1.15, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 lg:w-16 lg:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40 border-2 border-white/20 relative group"
+          className="w-16 h-16 lg:w-20 lg:h-20 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(37,211,102,0.4)] border-4 border-white relative group"
         >
-          <div className="absolute -left-20 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          <div className="absolute -left-28 bg-slate-900 text-white text-xs font-black px-4 py-2 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest shadow-xl uppercase">
             WhatsApp Us
           </div>
-          <FaWhatsapp className="h-8 w-8 lg:h-9 lg:w-9" />
+          <FaWhatsapp className="h-9 w-9 lg:h-11 lg:w-11" />
         </motion.a>
         <motion.a 
           href="tel:9768441368"
           initial={popAnimation.initial}
           animate={popAnimation.animate}
           transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-          whileHover={{ scale: 1.1, rotate: -5 }}
+          whileHover={{ scale: 1.15, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 lg:w-16 lg:h-16 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/40 border-2 border-white/20 relative group"
+          className="w-16 h-16 lg:w-20 lg:h-20 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(37,99,235,0.4)] border-4 border-white relative group"
         >
-          <div className="absolute -left-20 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          <div className="absolute -left-28 bg-slate-900 text-white text-xs font-black px-4 py-2 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest shadow-xl uppercase">
             Call Expert
           </div>
-          <Phone className="h-6 w-6 lg:h-7 lg:w-7" />
+          <Phone className="h-7 w-7 lg:h-9 lg:w-9" />
         </motion.a>
       </div>
 
       {/* Modern Footer */}
-      <footer className="bg-white pt-16 lg:pt-24 pb-12 border-t border-slate-100 relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700" />
+      <footer className="bg-white pt-24 lg:pt-40 pb-16 border-t border-slate-100 relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16 lg:mb-24">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24 mb-24 lg:mb-40">
             <div className="lg:col-span-2">
-              <div className="flex items-center space-x-3 mb-6 lg:mb-8">
-                <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold">F</span>
+              <div className="flex items-center space-x-4 mb-8 lg:mb-12">
+                <div className="w-12 h-12 bg-slate-900 rounded-[18px] flex items-center justify-center shadow-2xl">
+                  <span className="text-white font-black text-xl">F</span>
                 </div>
-                <span className="text-xl font-bold tracking-tight text-slate-900 font-sans uppercase">FORMORA NEPAL</span>
+                <span className="text-2xl lg:text-3xl font-[1000] tracking-tighter text-slate-900 uppercase">FORMORA NEPAL</span>
               </div>
-              <p className="text-base lg:text-lg text-slate-500 font-medium max-w-sm leading-relaxed">Nepal's first professional digital form assistance platform. Built for trust, speed, and accuracy.</p>
+              <p className="text-lg lg:text-xl text-slate-500 font-medium max-w-sm leading-relaxed">Nepal's first professional digital form assistance platform. Built for trust, speed, and accuracy.</p>
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Services</h4>
-              <ul className="space-y-4 text-slate-500 font-medium">
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Government Forms</li>
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Visa Assistance</li>
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Education Portals</li>
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Business Registration</li>
+              <h4 className="font-black text-slate-900 mb-8 lg:mb-10 uppercase tracking-[0.25em] text-xs">Services</h4>
+              <ul className="space-y-6 text-slate-500 font-bold">
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">Government Forms</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">Visa Assistance</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">Education Portals</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">Business Registration</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Support</h4>
-              <ul className="space-y-4 text-slate-500 font-medium">
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Contact Us</li>
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Privacy Policy</li>
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">Terms of Service</li>
-                <li className="hover:text-blue-600 transition-all cursor-pointer text-sm lg:text-base hover:pl-1">FAQ</li>
+              <h4 className="font-black text-slate-900 mb-8 lg:mb-10 uppercase tracking-[0.25em] text-xs">Support</h4>
+              <ul className="space-y-6 text-slate-500 font-bold">
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">Contact Us</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">Privacy Policy</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">Terms of Service</li>
+                <li className="hover:text-blue-600 transition-all cursor-pointer text-base lg:text-lg hover:translate-x-2">FAQ</li>
               </ul>
             </div>
           </div>
-          <div className="pt-8 lg:pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-slate-400 font-medium text-xs lg:text-sm text-center md:text-left">© 2026 Formora Nepal. Handcrafted with precision.</p>
-            <div className="flex space-x-6 lg:space-x-8 text-slate-400 font-bold text-[10px] lg:text-sm">
-              <motion.span whileHover={{ color: "#0f172a" }} className="transition-colors cursor-pointer uppercase">TWITTER</motion.span>
-              <motion.span whileHover={{ color: "#0f172a" }} className="transition-colors cursor-pointer uppercase">FACEBOOK</motion.span>
-              <motion.span whileHover={{ color: "#0f172a" }} className="transition-colors cursor-pointer uppercase">LINKEDIN</motion.span>
+          <div className="pt-12 lg:pt-16 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p className="text-slate-400 font-black text-xs lg:text-sm text-center md:text-left tracking-widest uppercase">© 2026 Formora Nepal. Handcrafted with precision.</p>
+            <div className="flex space-x-10 lg:space-x-14 text-slate-400 font-black text-[10px] lg:text-xs tracking-[0.3em]">
+              <motion.span whileHover={{ color: "#0f172a", y: -2 }} className="transition-all cursor-pointer uppercase">TWITTER</motion.span>
+              <motion.span whileHover={{ color: "#0f172a", y: -2 }} className="transition-all cursor-pointer uppercase">FACEBOOK</motion.span>
+              <motion.span whileHover={{ color: "#0f172a", y: -2 }} className="transition-all cursor-pointer uppercase">LINKEDIN</motion.span>
             </div>
           </div>
         </div>

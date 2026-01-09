@@ -1,0 +1,130 @@
+Build an advanced, high-conversion HERO BANNER section for the homepage of “Formora Nepal”.
+
+This hero section must feel premium, modern, calm, and extremely trustworthy, similar to top global service platforms (Stripe, Apple, Linear), but adapted for Nepal’s audience.
+
+IMPORTANT RULES:
+- Frontend only (NO backend, NO API calls)
+- Use Next.js App Router with TypeScript
+- Use Tailwind CSS for styling
+- Use Framer Motion for animations
+- All images must be referenced from the /public folder
+- Keep code modular and readable
+- Button/link actions should only navigate (no submission logic yet)
+
+--------------------------------------------------
+HERO SECTION GOALS
+--------------------------------------------------
+
+1. Instantly communicate trust and professionalism
+2. Clearly explain what the platform does
+3. Strongly guide the user to take action
+4. Reduce fear and hesitation
+5. Work perfectly on mobile and slow networks
+
+--------------------------------------------------
+CONTENT REQUIREMENTS
+--------------------------------------------------
+
+Headline (large, bold, animated):
+“One Platform. Every Form. Zero Stress.”
+
+Subheading (calm, reassuring tone):
+“Government, education, foreign, banking, and digital form services — handled accurately, securely, and fast by experts.”
+
+Supporting micro-text (trust cue):
+“Trusted by Nepalis nationwide • Privacy-first • Error-free assistance”
+
+--------------------------------------------------
+CALL-TO-ACTION (VERY IMPORTANT)
+--------------------------------------------------
+
+Primary CTA Button:
+Text: “Start My Application”
+- Visually dominant
+- Uses primary brand color
+- Rounded, premium look
+- Subtle pulse or glow animation to attract attention
+- Navigates to /services (routing only)
+
+Secondary CTA (less dominant):
+Text: “Explore Services”
+- Outline or secondary style
+- Navigates to /services
+
+Psychology:
+- Primary CTA must clearly suggest progress and relief
+- Wording should feel safe, not aggressive
+
+--------------------------------------------------
+ANIMATION REQUIREMENTS
+--------------------------------------------------
+
+Use Framer Motion to implement:
+
+1. Page load animation:
+- Headline fades in + slides up
+- Subheading appears slightly after (staggered animation)
+
+2. Background motion:
+- Soft animated gradient OR
+- Floating abstract shapes/icons (documents, forms, checkmarks)
+
+3. CTA animation:
+- Subtle hover scale
+- Gentle pulse or glow every few seconds (not distracting)
+
+Animations must be:
+- Smooth
+- Purposeful
+- Not flashy
+- Not overwhelming
+
+--------------------------------------------------
+LAYOUT & DESIGN
+--------------------------------------------------
+
+Layout:
+- Full-width hero
+- Centered content on desktop
+- Stacked content on mobile
+- Generous white space
+
+Background:
+- Light gradient inspired by Nepal (soft red/neutral tones)
+- Optional abstract illustration from /public (documents/forms theme)
+
+Typography:
+- Large readable headline
+- Clear hierarchy
+- Accessible contrast
+
+--------------------------------------------------
+MOBILE-FIRST REQUIREMENTS
+--------------------------------------------------
+
+- Buttons must be thumb-friendly
+- Text must wrap cleanly
+- No overflow or animation glitches
+- Performance optimized
+
+--------------------------------------------------
+DO NOT INCLUDE
+--------------------------------------------------
+
+- No form inputs
+- No API calls
+- No backend logic
+- No analytics
+- No hard-coded business data
+
+--------------------------------------------------
+FINAL EXPECTATION
+--------------------------------------------------
+
+The hero banner should feel like it was designed by a senior UI/UX team with deep understanding of:
+- Trust psychology
+- Conversion optimization
+- Modern animation standards
+- Nepal’s digital user base
+
+Deliver clean, production-ready React components with clear structure and comments where necessary.
