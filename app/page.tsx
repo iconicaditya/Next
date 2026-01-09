@@ -28,10 +28,37 @@ const stats = [
   { label: "Customer Satisfaction", value: 4.9, suffix: "/5", icon: Shield, color: "from-red-500 to-rose-600" },
 ];
 
-function Counter({ value, suffix, decimals = 0 }: { value: number, suffix: string, decimals?: number }) {
+function Counter({ value, suffix, decimals = 0, shouldAnimate = true }: { value: number, suffix: string, decimals?: number, shouldAnimate?: boolean }) {
   const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const counterRef = useState<HTMLSpanElement | null>(null)[0];
 
   useEffect(() => {
+    if (!shouldAnimate) {
+      setCount(value);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const el = document.getElementById(`counter-${value}-${suffix}`);
+    if (el) observer.observe(el);
+
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, [value, suffix, shouldAnimate, hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
     let start = 0;
     const end = value;
     const duration = 2000;
@@ -48,10 +75,10 @@ function Counter({ value, suffix, decimals = 0 }: { value: number, suffix: strin
     }, 16);
 
     return () => clearInterval(timer);
-  }, [value]);
+  }, [hasStarted, value]);
 
   return (
-    <span>
+    <span id={`counter-${value}-${suffix}`}>
       {count.toFixed(decimals)}
       {suffix}
     </span>
@@ -467,6 +494,7 @@ export default function Home() {
                     value={stat.value} 
                     suffix={stat.suffix} 
                     decimals={stat.value % 1 === 0 ? 0 : 1} 
+                    shouldAnimate={true}
                   />
                 </div>
                 <div className="text-[10px] lg:text-sm font-black text-slate-400 uppercase tracking-[0.2em]">{stat.label}</div>
