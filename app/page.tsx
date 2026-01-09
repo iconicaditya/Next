@@ -39,12 +39,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const popAnimation = {
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    transition: { type: "spring", stiffness: 260, damping: 20 }
-  };
-
   const cardVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: (i: number) => ({
@@ -214,7 +208,6 @@ export default function Home() {
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             className="absolute top-[20%] -left-[10%] w-[300px] lg:w-[700px] h-[300px] lg:h-[700px] bg-red-100 rounded-full blur-[80px] lg:blur-[150px]" 
           />
-          {/* Decorative Floating Dots */}
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1.5px,transparent_1.5px)] [background-size:40px_40px]" />
         </div>
 
@@ -263,7 +256,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-5 lg:gap-6 px-4"
             >
-              <Link href="/category" className="w-full sm:w-auto">
+              <Link href="/apply" className="w-full sm:w-auto">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -389,8 +382,8 @@ export default function Home() {
           href="https://wa.me/9768441368"
           target="_blank"
           rel="noopener noreferrer"
-          initial={popAnimation.initial}
-          animate={popAnimation.animate}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           whileHover={{ scale: 1.15, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
@@ -403,8 +396,8 @@ export default function Home() {
         </motion.a>
         <motion.a 
           href="tel:9768441368"
-          initial={popAnimation.initial}
-          animate={popAnimation.animate}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
           whileHover={{ scale: 1.15, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
