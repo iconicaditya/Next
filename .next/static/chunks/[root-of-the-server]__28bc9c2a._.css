@@ -474,6 +474,10 @@ body ::selection, body::selection {
   top: 20%;
 }
 
+.top-full {
+  top: 100%;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -526,6 +530,10 @@ body ::selection, body::selection {
 
 .ml-2 {
   margin-left: .5rem;
+}
+
+.mb-2 {
+  margin-bottom: .5rem;
 }
 
 .flex {
@@ -690,6 +698,11 @@ body ::selection, body::selection {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 @keyframes pulse {
   50% {
     opacity: .5;
@@ -716,8 +729,16 @@ body ::selection, body::selection {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-end {
@@ -758,6 +779,14 @@ body ::selection, body::selection {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-1 {
+  gap: .25rem;
+}
+
+.gap-3 {
+  gap: .75rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -826,6 +855,14 @@ body ::selection, body::selection {
 
 .rounded-xl {
   border-radius: .75rem;
+}
+
+.rounded-\[24px\] {
+  border-radius: 24px;
+}
+
+.rounded-lg {
+  border-radius: var(--radius);
 }
 
 .border {
@@ -968,6 +1005,11 @@ body ::selection, body::selection {
   background-color: rgba(255, 255, 255, .8);
 }
 
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(241, 245, 249, var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1014,6 +1056,10 @@ body ::selection, body::selection {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-12 {
@@ -1071,6 +1117,16 @@ body ::selection, body::selection {
   padding-bottom: 1.25rem;
 }
 
+.px-2 {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.py-0\.5 {
+  padding-top: .125rem;
+  padding-bottom: .125rem;
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -1089,6 +1145,10 @@ body ::selection, body::selection {
 
 .pt-32 {
   padding-top: 8rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-center {

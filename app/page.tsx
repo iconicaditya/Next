@@ -1,23 +1,27 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ShieldCheck, Zap, Globe, Landmark, GraduationCap, Briefcase, ChevronRight, Menu, X, Phone, MessageSquare } from "lucide-react";
+import { 
+  ArrowRight, ShieldCheck, Zap, Globe, Landmark, GraduationCap, 
+  Briefcase, ChevronRight, Menu, X, Phone, MessageSquare, ChevronDown 
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
 const categories = [
-  { id: 1, name: "Government & Public Services", icon: ShieldCheck, color: "text-red-600", bg: "bg-red-50" },
-  { id: 2, name: "Citizenship & Identity", icon: Globe, color: "text-blue-600", bg: "bg-blue-50" },
-  { id: 3, name: "Education & Exams", icon: GraduationCap, color: "text-green-600", bg: "bg-green-50" },
-  { id: 4, name: "Foreign & International", icon: Globe, color: "text-purple-600", bg: "bg-purple-50" },
-  { id: 5, name: "Banking & Finance", icon: Landmark, color: "text-amber-600", bg: "bg-amber-50" },
-  { id: 6, name: "Business & Tax", icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50" },
+  { id: 1, name: "Government & Public Services", icon: ShieldCheck, color: "text-red-600", bg: "bg-red-50", services: ["Citizenship", "Passport", "Voter ID"] },
+  { id: 2, name: "Citizenship & Identity", icon: Globe, color: "text-blue-600", bg: "bg-blue-50", services: ["National ID", "Birth Certificate"] },
+  { id: 3, name: "Education & Exams", icon: GraduationCap, color: "text-green-600", bg: "bg-green-50", services: ["NOC", "Equivalence", "License Exams"] },
+  { id: 4, name: "Foreign & International", icon: Globe, color: "text-purple-600", bg: "bg-purple-50", services: ["Visa Appointment", "Attestation"] },
+  { id: 5, name: "Banking & Finance", icon: Landmark, color: "text-amber-600", bg: "bg-amber-50", services: ["Loan Forms", "Account Opening"] },
+  { id: 6, name: "Business & Tax", icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50", services: ["PAN Registration", "Tax Filing"] },
 ];
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -47,13 +51,55 @@ export default function Home() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-1">
-            {["Government", "Foreign", "Education", "Banking"].map((item) => (
-              <Button key={item} variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all">
-                {item}
+            <Button variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all">
+              Home
+            </Button>
+            <Button variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all">
+              About
+            </Button>
+            
+            {/* Services Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <Button variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all flex items-center gap-1">
+                Services <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", isServicesOpen && "rotate-180")} />
               </Button>
-            ))}
+              
+              <AnimatePresence>
+                {isServicesOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[600px]"
+                  >
+                    <div className="bg-white rounded-[24px] border border-slate-200/60 shadow-2xl p-6 grid grid-cols-2 gap-4">
+                      {categories.map((cat) => (
+                        <div key={cat.id} className="group/item p-4 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer">
+                          <div className="flex items-center gap-3 mb-2">
+                            <div className={cn("p-2 rounded-lg", cat.bg, cat.color)}>
+                              <cat.icon className="h-4 w-4" />
+                            </div>
+                            <span className="font-bold text-slate-900 text-sm">{cat.name}</span>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {cat.services.map(s => (
+                              <span key={s} className="text-[10px] font-medium px-2 py-0.5 bg-slate-100 rounded-md text-slate-500">{s}</span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <div className="w-px h-6 bg-slate-200 mx-4" />
-            <Button variant="ghost" className="text-sm font-bold text-slate-900 hover:text-blue-600 px-5">Expert Help</Button>
             <Button className="bg-slate-900 text-white hover:bg-slate-800 rounded-full px-8 h-11 font-bold shadow-lg shadow-slate-900/10 ml-2">
               Start Now
             </Button>
@@ -91,8 +137,8 @@ export default function Home() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -139,7 +185,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Grid Section */}
       <section className="py-32 bg-slate-50/50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
