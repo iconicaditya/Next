@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { 
   ArrowRight, ShieldCheck, Zap, Globe, Landmark, GraduationCap, 
   Briefcase, ChevronRight, Menu, X, Phone, MessageSquare, ChevronDown 
@@ -10,12 +11,12 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 
 const categories = [
-  { id: 1, name: "Government & Public Services", icon: ShieldCheck, color: "text-red-600", bg: "bg-red-50", services: ["Citizenship", "Passport", "Voter ID"] },
-  { id: 2, name: "Citizenship & Identity", icon: Globe, color: "text-blue-600", bg: "bg-blue-50", services: ["National ID", "Birth Certificate"] },
-  { id: 3, name: "Education & Exams", icon: GraduationCap, color: "text-green-600", bg: "bg-green-50", services: ["NOC", "Equivalence", "License Exams"] },
-  { id: 4, name: "Foreign & International", icon: Globe, color: "text-purple-600", bg: "bg-purple-50", services: ["Visa Appointment", "Attestation"] },
-  { id: 5, name: "Banking & Finance", icon: Landmark, color: "text-amber-600", bg: "bg-amber-50", services: ["Loan Forms", "Account Opening"] },
-  { id: 6, name: "Business & Tax", icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50", services: ["PAN Registration", "Tax Filing"] },
+  { id: 1, name: "Government & Public Services", icon: ShieldCheck, color: "text-red-600", bg: "bg-red-50", services: ["Citizenship", "Passport", "Voter ID"], path: "/category" },
+  { id: 2, name: "Citizenship & Identity", icon: Globe, color: "text-blue-600", bg: "bg-blue-50", services: ["National ID", "Birth Certificate"], path: "/category" },
+  { id: 3, name: "Education & Exams", icon: GraduationCap, color: "text-green-600", bg: "bg-green-50", services: ["NOC", "Equivalence", "License Exams"], path: "/category" },
+  { id: 4, name: "Foreign & International", icon: Globe, color: "text-purple-600", bg: "bg-purple-50", services: ["Visa Appointment", "Attestation"], path: "/category" },
+  { id: 5, name: "Banking & Finance", icon: Landmark, color: "text-amber-600", bg: "bg-amber-50", services: ["Loan Forms", "Account Opening"], path: "/category" },
+  { id: 6, name: "Business & Tax", icon: Briefcase, color: "text-emerald-600", bg: "bg-emerald-50", services: ["PAN Registration", "Tax Filing"], path: "/category" },
 ];
 
 export default function Home() {
@@ -39,7 +40,7 @@ export default function Home() {
           : "bg-transparent border-transparent py-5"
       )}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center space-x-3 group cursor-pointer">
+          <Link href="/" className="flex items-center space-x-3 group cursor-pointer">
             <div className="w-11 h-11 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
               <span className="text-white font-bold text-xl tracking-tighter">F</span>
             </div>
@@ -47,16 +48,20 @@ export default function Home() {
               <span className="text-xl font-bold tracking-tight text-slate-900">FORMORA <span className="text-blue-600">NEPAL</span></span>
               <span className="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase leading-none">Form Assistance</span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-1">
-            <Button variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all">
-              Home
-            </Button>
-            <Button variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all">
-              About
-            </Button>
+            <Link href="/">
+              <Button variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all">
+                Home
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button variant="ghost" className="text-sm font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 rounded-full px-5 transition-all">
+                About
+              </Button>
+            </Link>
             
             {/* Services Dropdown */}
             <div 
@@ -79,7 +84,7 @@ export default function Home() {
                   >
                     <div className="bg-white rounded-[24px] border border-slate-200/60 shadow-2xl p-6 grid grid-cols-2 gap-4">
                       {categories.map((cat) => (
-                        <div key={cat.id} className="group/item p-4 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer">
+                        <Link key={cat.id} href={cat.path} className="group/item p-4 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer">
                           <div className="flex items-center gap-3 mb-2">
                             <div className={cn("p-2 rounded-lg", cat.bg, cat.color)}>
                               <cat.icon className="h-4 w-4" />
@@ -91,7 +96,7 @@ export default function Home() {
                               <span key={s} className="text-[10px] font-medium px-2 py-0.5 bg-slate-100 rounded-md text-slate-500">{s}</span>
                             ))}
                           </div>
-                        </div>
+                        </Link>
                       ))}
                     </div>
                   </motion.div>
@@ -100,9 +105,11 @@ export default function Home() {
             </div>
 
             <div className="w-px h-6 bg-slate-200 mx-4" />
-            <Button className="bg-slate-900 text-white hover:bg-slate-800 rounded-full px-8 h-11 font-bold shadow-lg shadow-slate-900/10 ml-2">
-              Start Now
-            </Button>
+            <Link href="/apply">
+              <Button className="bg-slate-900 text-white hover:bg-slate-800 rounded-full px-8 h-11 font-bold shadow-lg shadow-slate-900/10 ml-2">
+                Start Now
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -174,9 +181,11 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-5"
             >
-              <Button size="lg" className="rounded-2xl px-12 h-16 text-lg font-bold bg-blue-600 hover:bg-blue-700 shadow-2xl shadow-blue-500/25 group">
-                Start My Application <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link href="/apply">
+                <Button size="lg" className="rounded-2xl px-12 h-16 text-lg font-bold bg-blue-600 hover:bg-blue-700 shadow-2xl shadow-blue-500/25 group">
+                  Start My Application <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               <Button size="lg" variant="outline" className="rounded-2xl px-12 h-16 text-lg font-bold border-2 border-slate-200 hover:bg-slate-50 transition-all">
                 Talk to an Expert
               </Button>
@@ -200,24 +209,28 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((cat, i) => (
-              <motion.div
+              <Link
                 key={cat.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8 }}
+                href={cat.path}
                 className="group relative bg-white p-10 rounded-[32px] border border-slate-200/60 shadow-xl shadow-slate-200/20 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 cursor-pointer"
               >
-                <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-10 transition-transform duration-500 group-hover:scale-110", cat.bg, cat.color)}>
-                  <cat.icon className="h-8 w-8" />
-                </div>
-                <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight group-hover:text-blue-600 transition-colors">{cat.name}</h3>
-                <p className="text-slate-500 leading-relaxed mb-10 font-medium">Navigate complex {cat.name.toLowerCase()} with our certified experts.</p>
-                <div className="flex items-center text-sm font-bold text-blue-600 uppercase tracking-widest">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform" />
-                </div>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8 }}
+                >
+                  <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-10 transition-transform duration-500 group-hover:scale-110", cat.bg, cat.color)}>
+                    <cat.icon className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight group-hover:text-blue-600 transition-colors">{cat.name}</h3>
+                  <p className="text-slate-500 leading-relaxed mb-10 font-medium">Navigate complex {cat.name.toLowerCase()} with our certified experts.</p>
+                  <div className="flex items-center text-sm font-bold text-blue-600 uppercase tracking-widest">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>

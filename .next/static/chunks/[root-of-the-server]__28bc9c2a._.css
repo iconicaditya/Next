@@ -430,6 +430,10 @@ body ::selection, body::selection {
   background-color: hsl(var(--primary) / .2);
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .fixed {
   position: fixed;
 }
@@ -440,6 +444,13 @@ body ::selection, body::selection {
 
 .relative {
   position: relative;
+}
+
+.inset-0 {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .-left-\[10\%\] {
@@ -496,6 +507,10 @@ body ::selection, body::selection {
   margin-right: auto;
 }
 
+.mb-1 {
+  margin-bottom: .25rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -504,12 +519,24 @@ body ::selection, body::selection {
   margin-bottom: 3rem;
 }
 
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.mb-2 {
+  margin-bottom: .5rem;
+}
+
 .mb-20 {
   margin-bottom: 5rem;
 }
 
 .mb-24 {
   margin-bottom: 6rem;
+}
+
+.mb-32 {
+  margin-bottom: 8rem;
 }
 
 .mb-4 {
@@ -532,8 +559,16 @@ body ::selection, body::selection {
   margin-left: .5rem;
 }
 
-.mb-2 {
-  margin-bottom: .5rem;
+.mr-2 {
+  margin-right: .5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .flex {
@@ -552,6 +587,14 @@ body ::selection, body::selection {
   display: none;
 }
 
+.aspect-square {
+  aspect-ratio: 1;
+}
+
+.h-1 {
+  height: .25rem;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -560,12 +603,32 @@ body ::selection, body::selection {
   height: 2.75rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
+.h-14 {
+  height: 3.5rem;
+}
+
 .h-16 {
   height: 4rem;
 }
 
 .h-2 {
   height: .5rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.h-3 {
+  height: .75rem;
 }
 
 .h-4 {
@@ -616,12 +679,28 @@ body ::selection, body::selection {
   width: 2.75rem;
 }
 
+.w-14 {
+  width: 3.5rem;
+}
+
 .w-16 {
   width: 4rem;
 }
 
 .w-2 {
   width: .5rem;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.w-3 {
+  width: .75rem;
 }
 
 .w-4 {
@@ -673,6 +752,10 @@ body ::selection, body::selection {
   max-width: 42rem;
 }
 
+.max-w-3xl {
+  max-width: 48rem;
+}
+
 .max-w-4xl {
   max-width: 56rem;
 }
@@ -689,6 +772,10 @@ body ::selection, body::selection {
   max-width: 36rem;
 }
 
+.shrink-0 {
+  flex-shrink: 0;
+}
+
 .flex-grow {
   flex-grow: 1;
 }
@@ -698,8 +785,18 @@ body ::selection, body::selection {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.-rotate-3 {
+  --tw-rotate: -3deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-180 {
   --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-3 {
+  --tw-rotate: 3deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -715,14 +812,6 @@ body ::selection, body::selection {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.list-inside {
-  list-style-position: inside;
-}
-
-.list-disc {
-  list-style-type: disc;
 }
 
 .grid-cols-1 {
@@ -741,6 +830,10 @@ body ::selection, body::selection {
   flex-wrap: wrap;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-end {
   align-items: flex-end;
 }
@@ -757,12 +850,32 @@ body ::selection, body::selection {
   justify-content: space-between;
 }
 
+.gap-1 {
+  gap: .25rem;
+}
+
+.gap-1\.5 {
+  gap: .375rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
 .gap-16 {
   gap: 4rem;
 }
 
 .gap-2 {
   gap: .5rem;
+}
+
+.gap-20 {
+  gap: 5rem;
+}
+
+.gap-3 {
+  gap: .75rem;
 }
 
 .gap-4 {
@@ -779,14 +892,6 @@ body ::selection, body::selection {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-1 {
-  gap: .25rem;
-}
-
-.gap-3 {
-  gap: .75rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -825,6 +930,18 @@ body ::selection, body::selection {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -841,12 +958,32 @@ body ::selection, body::selection {
   border-radius: 1rem;
 }
 
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-\[24px\] {
+  border-radius: 24px;
+}
+
 .rounded-\[32px\] {
   border-radius: 32px;
 }
 
+.rounded-\[40px\] {
+  border-radius: 40px;
+}
+
+.rounded-\[64px\] {
+  border-radius: 64px;
+}
+
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: var(--radius);
 }
 
 .rounded-md {
@@ -855,14 +992,6 @@ body ::selection, body::selection {
 
 .rounded-xl {
   border-radius: .75rem;
-}
-
-.rounded-\[24px\] {
-  border-radius: 24px;
-}
-
-.rounded-lg {
-  border-radius: var(--radius);
 }
 
 .border {
@@ -886,8 +1015,18 @@ body ::selection, body::selection {
   border-top-width: 1px;
 }
 
-.border-black\/\[\.08\] {
-  border-color: rgba(0, 0, 0, .08);
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-blue-100 {
+  --tw-border-opacity: 1;
+  border-color: rgba(219, 234, 254, var(--tw-border-opacity, 1));
+}
+
+.border-blue-600 {
+  --tw-border-opacity: 1;
+  border-color: rgba(37, 99, 235, var(--tw-border-opacity, 1));
 }
 
 .border-input {
@@ -902,6 +1041,10 @@ body ::selection, body::selection {
 .border-slate-200 {
   --tw-border-opacity: 1;
   border-color: rgba(226, 232, 240, var(--tw-border-opacity, 1));
+}
+
+.border-slate-200\/50 {
+  border-color: rgba(226, 232, 240, .5);
 }
 
 .border-slate-200\/60 {
@@ -978,9 +1121,23 @@ body ::selection, body::selection {
   background-color: hsl(var(--secondary));
 }
 
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(241, 245, 249, var(--tw-bg-opacity, 1));
+}
+
 .bg-slate-200 {
   --tw-bg-opacity: 1;
   background-color: rgba(226, 232, 240, var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(248, 250, 252, var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-50\/30 {
+  background-color: rgba(248, 250, 252, .3);
 }
 
 .bg-slate-50\/50 {
@@ -1003,11 +1160,6 @@ body ::selection, body::selection {
 
 .bg-white\/80 {
   background-color: rgba(255, 255, 255, .8);
-}
-
-.bg-slate-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(241, 245, 249, var(--tw-bg-opacity, 1));
 }
 
 .bg-gradient-to-r {
@@ -1046,8 +1198,20 @@ body ::selection, body::selection {
   padding: 2.5rem;
 }
 
+.p-12 {
+  padding: 3rem;
+}
+
+.p-16 {
+  padding: 4rem;
+}
+
 .p-2 {
   padding: .5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .p-6 {
@@ -1058,13 +1222,19 @@ body ::selection, body::selection {
   padding: 2rem;
 }
 
-.p-4 {
-  padding: 1rem;
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+.px-2 {
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .px-3 {
@@ -1092,9 +1262,24 @@ body ::selection, body::selection {
   padding-right: 2rem;
 }
 
+.py-0\.5 {
+  padding-top: .125rem;
+  padding-bottom: .125rem;
+}
+
+.py-1 {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
 .py-1\.5 {
   padding-top: .375rem;
   padding-bottom: .375rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .py-2 {
@@ -1117,22 +1302,20 @@ body ::selection, body::selection {
   padding-bottom: 1.25rem;
 }
 
-.px-2 {
-  padding-left: .5rem;
-  padding-right: .5rem;
-}
-
-.py-0\.5 {
-  padding-top: .125rem;
-  padding-bottom: .125rem;
-}
-
 .pb-12 {
   padding-bottom: 3rem;
 }
 
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
 .pb-24 {
   padding-bottom: 6rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .pt-12 {
@@ -1151,12 +1334,16 @@ body ::selection, body::selection {
   padding-top: 1rem;
 }
 
-.text-center {
-  text-align: center;
+.pt-8 {
+  padding-top: 2rem;
 }
 
-.font-\[family-name\:var\(--font-geist-sans\)\] {
-  font-family: var(--font-geist-sans);
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .font-sans {
@@ -1178,8 +1365,18 @@ body ::selection, body::selection {
   line-height: 2.5rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-6xl {
   font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
   line-height: 1;
 }
 
@@ -1227,6 +1424,10 @@ body ::selection, body::selection {
   text-transform: uppercase;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .leading-\[0\.95\] {
   line-height: .95;
 }
@@ -1237,6 +1438,10 @@ body ::selection, body::selection {
 
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.leading-tight {
+  line-height: 1.25;
 }
 
 .tracking-\[0\.2em\] {
@@ -1264,14 +1469,23 @@ body ::selection, body::selection {
   color: rgba(217, 119, 6, var(--tw-text-opacity, 1));
 }
 
-.text-blue-500 {
+.text-blue-400 {
   --tw-text-opacity: 1;
-  color: rgba(59, 130, 246, var(--tw-text-opacity, 1));
+  color: rgba(96, 165, 250, var(--tw-text-opacity, 1));
 }
 
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgba(37, 99, 235, var(--tw-text-opacity, 1));
+}
+
+.text-blue-700\/80 {
+  color: rgba(29, 78, 216, .8);
+}
+
+.text-blue-900 {
+  --tw-text-opacity: 1;
+  color: rgba(30, 58, 138, var(--tw-text-opacity, 1));
 }
 
 .text-destructive-foreground {
@@ -1283,14 +1497,14 @@ body ::selection, body::selection {
   color: rgba(5, 150, 105, var(--tw-text-opacity, 1));
 }
 
-.text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgba(75, 85, 99, var(--tw-text-opacity, 1));
-}
-
 .text-green-600 {
   --tw-text-opacity: 1;
   color: rgba(22, 163, 74, var(--tw-text-opacity, 1));
+}
+
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgba(22, 101, 52, var(--tw-text-opacity, 1));
 }
 
 .text-primary {
@@ -1330,6 +1544,11 @@ body ::selection, body::selection {
   color: rgba(71, 85, 105, var(--tw-text-opacity, 1));
 }
 
+.text-slate-700 {
+  --tw-text-opacity: 1;
+  color: rgba(51, 65, 85, var(--tw-text-opacity, 1));
+}
+
 .text-slate-900 {
   --tw-text-opacity: 1;
   color: rgba(15, 23, 42, var(--tw-text-opacity, 1));
@@ -1344,13 +1563,35 @@ body ::selection, body::selection {
   color: rgba(255, 255, 255, var(--tw-text-opacity, 1));
 }
 
+.underline {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+.decoration-blue-100 {
+  -webkit-text-decoration-color: #dbeafe;
+  text-decoration-color: #dbeafe;
+}
+
+.decoration-8 {
+  text-decoration-thickness: 8px;
+}
+
 .underline-offset-4 {
   text-underline-offset: 4px;
+}
+
+.underline-offset-8 {
+  text-underline-offset: 8px;
 }
 
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.opacity-60 {
+  opacity: .6;
 }
 
 .opacity-80 {
@@ -1412,9 +1653,19 @@ body ::selection, body::selection {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.shadow-slate-200\/50 {
+  --tw-shadow-color: rgba(226, 232, 240, .5);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .shadow-slate-900\/10 {
   --tw-shadow-color: rgba(15, 23, 42, .1);
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.outline-none {
+  outline-offset: 2px;
+  outline: 2px solid rgba(0, 0, 0, 0);
 }
 
 .outline {
@@ -1423,6 +1674,11 @@ body ::selection, body::selection {
 
 .blur-\[120px\] {
   --tw-blur: blur(120px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.grayscale {
+  --tw-grayscale: grayscale(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -1513,6 +1769,14 @@ body ::selection, body::selection {
   background-color: hsl(var(--primary) / .1);
 }
 
+.hover\:border-blue-500\/50:hover {
+  border-color: rgba(59, 130, 246, .5);
+}
+
+.hover\:border-blue-600\/50:hover {
+  border-color: rgba(37, 99, 235, .5);
+}
+
 .hover\:bg-accent:hover {
   background-color: hsl(var(--accent));
 }
@@ -1520,6 +1784,10 @@ body ::selection, body::selection {
 .hover\:bg-blue-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(239, 246, 255, var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-blue-50\/30:hover {
+  background-color: rgba(239, 246, 255, .3);
 }
 
 .hover\:bg-blue-50\/50:hover {
@@ -1583,9 +1851,30 @@ body ::selection, body::selection {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
 }
 
+.hover\:shadow-xl:hover {
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 8px 10px -6px rgba(0, 0, 0, .1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+}
+
 .hover\:shadow-blue-500\/10:hover {
   --tw-shadow-color: rgba(59, 130, 246, .1);
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hover\:shadow-blue-500\/5:hover {
+  --tw-shadow-color: rgba(59, 130, 246, .05);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.focus\:border-blue-600:focus {
+  --tw-border-opacity: 1;
+  border-color: rgba(37, 99, 235, var(--tw-border-opacity, 1));
+}
+
+.focus\:bg-white:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity, 1));
 }
 
 .focus-visible\:outline-none:focus-visible {
@@ -1638,22 +1927,9 @@ body ::selection, body::selection {
   color: rgba(37, 99, 235, var(--tw-text-opacity, 1));
 }
 
-.dark\:border-white\/\[\.145\]:is(.dark *) {
-  border-color: rgba(255, 255, 255, .145);
-}
-
-.dark\:text-gray-400:is(.dark *) {
-  --tw-text-opacity: 1;
-  color: rgba(156, 163, 175, var(--tw-text-opacity, 1));
-}
-
 @media (min-width: 640px) {
   .sm\:flex-row {
     flex-direction: row;
-  }
-
-  .sm\:p-20 {
-    padding: 5rem;
   }
 
   .sm\:px-6 {
@@ -1663,8 +1939,16 @@ body ::selection, body::selection {
 }
 
 @media (min-width: 768px) {
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:flex-row {
@@ -1685,6 +1969,10 @@ body ::selection, body::selection {
     display: none;
   }
 
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1699,6 +1987,10 @@ body ::selection, body::selection {
 
   .lg\:items-end {
     align-items: flex-end;
+  }
+
+  .lg\:p-16 {
+    padding: 4rem;
   }
 
   .lg\:px-8 {
@@ -1716,6 +2008,11 @@ body ::selection, body::selection {
 
   .lg\:text-5xl {
     font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
     line-height: 1;
   }
 
